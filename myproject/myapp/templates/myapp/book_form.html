@@ -1,0 +1,17 @@
+<!-- myapp/templates/myapp/book_form.html -->
+
+
+<html>
+<head>
+    <title>{{ form.instance.pk|yesno:"Update Book,Create Book" }}</title>
+</head>
+<body>
+    <h1>{{ form.instance.pk|yesno:"Update Book,Create Book" }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+    <a href="{% url 'book_list' %}">Cancel</a>
+</body>
+</html>
